@@ -20,7 +20,7 @@ let persona =   {
 // la conversion a string para escribir, la mantenemos para leer y la convertimos a 
 // json al imprimir.
 
-// JSON es una clase (plantilla) que presenta sus metodos por defecto
+// 3- JSON es una clase (plantilla) predefinida en node que presenta sus metodos por defecto?????
 // function() es la callback del metodo de ese modulo. Esta funcion nos permite 
 // controlar la asincronia ya que al estar readfile dentro del parametro funcion de 
 // whrite file, no se ejecutara la accion de leer, hasta que se alla escrito, con lo 

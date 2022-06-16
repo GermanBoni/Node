@@ -2,7 +2,7 @@
 const fs = require ('fs')
 const readline = require ("readline")
 
-// readline es un modulo que viene por defecto cuando instalamos node no???
+// 1readline es un modulo que viene por defecto cuando instalamos node no??? porque no me salen los 3 puntos debajo de require??
 
 let persona={
     nombre: "",
@@ -16,7 +16,7 @@ let rl = readline.createInterface(process.stdin, process.stdout)
 //     output: process.stdout
 // })
 
-// 1- Esto de arriba no entiendo realmente porque lo he hecho. Las dos formas creo que estan bien.????????????
+// 2- Esto de arriba no entiendo realmente porque lo he hecho. Las dos formas creo que estan bien.????????????
 
 rl.question("¿Cual es tu nombre? ", (respuesta) => {
     

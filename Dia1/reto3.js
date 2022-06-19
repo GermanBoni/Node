@@ -2,7 +2,7 @@
 const fs = require ('fs')
 const readline = require ("readline")
 
-// 1readline es un modulo que viene por defecto cuando instalamos node no??? porque no me salen los 3 puntos debajo de require??
+// 1-readline es un modulo que viene por defecto cuando instalamos node no??? porque no me salen los 3 puntos debajo de require??
 
 let persona={
     nombre: "",

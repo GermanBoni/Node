@@ -78,3 +78,56 @@ getDatos()
 // }
 
 //getDatosAsync();
+
+
+function pregunta(pregunta) {
+    const question = new Promise ((resolve,reject)=>{
+        // Creamos interface de readline
+        const rl = readline.createInterface(process.stdin, process.stdout);
+
+        rl.question(pregunta, (respuesta) => {
+            resolve(respuesta);
+
+            rl.close()
+        })
+    });
+    return question;
+}
+
+function readConsole(){
+    let person = {name : null, surname: null, age: null};
+    // llamamos a la funcion(promesa);
+    pregunta('¿cual es tu nombre ')
+        // con cada promesa recogemos los valores
+        .then((respuesta)=>{
+            person.name = respuesta
+
+            // retornamos la siguiente pregunta que capturaremos con
+            //el siguiente then 
+            return pregunta('¿cual es tu apellido ')
+        })
+        .then((respuesta)=>{
+            person.surname = respuesta;
+
+            return pregunta ('¿y tu edad? ')
+        })
+        .then((respuesta)=>{
+            person.age = respuesta;
+             // comenzamos con el fs para crear nuestro archivo texto.JSON
+             fs.writeFile('./persona33.json', JSON.stringify(person))
+             .then (()=>{
+                 // retornamos para podre capturar esto en al siguiente then
+                 // ya que si no haria referencia al primer fs.write
+                 return fs.readFile('./persona33.json')
+             })
+             .then(readData =>{
+                 let data = JSON.parse(readData);
+                 console.log(data);
+             })
+             .catch(err =>{
+                 console.log(err);
+             })
+     })
+}
+// llamada a readConsole
+readConsole();

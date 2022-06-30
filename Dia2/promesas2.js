@@ -3,7 +3,7 @@ const fs = require("fs/promises")
 const readline = require("readline")
 
 const rl = readline.createInterface(process.stdin, process.stdout)
-
+// esto de arriba para que lo hacemos???
 
 let persona={
     nombre: "",
@@ -11,6 +11,7 @@ let persona={
     edad: ""
 }   
 
+// Estas variables deberian estar dentro de la funcion???
 let pregunta1="¿Cual es tu nombre? "
 
 let pregunta2="¿Cual es tu apellido? "
@@ -24,7 +25,7 @@ function pregunta (pregunta){
         rl.question(pregunta, (respuesta) => {
             resolve (respuesta)
             reject ("Error")
-            // rl.close() para que?????
+             
         })
 
     })
@@ -43,6 +44,7 @@ pregunta(pregunta1)
 })
 .then((dato3) => {
     persona.edad=dato3
+    rl.close()
     // console.log(persona)
     // las rutas de la misma carpeta en la que se trabaja se marca con ./???????? o solo con /???? porque en .gitignore solo me lo coge con una barra
     return fs.writeFile("./persona_promesa.json", JSON.stringify(persona))

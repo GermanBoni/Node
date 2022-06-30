@@ -1,1 +1,4 @@
 /node_modules
+/Dia4/node_modules
+
+# dentro de cada carpeta tengo que hacer npm init y npm intall express?????

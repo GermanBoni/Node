@@ -26,6 +26,7 @@ rl.question("¿Cual es tu nombre? ", (respuesta) => {
         persona.apellido= respuesta2
         rl.question("¿Cual es tu edad? ", (respuesta3) => {
             persona.edad= respuesta3
+            rl.close()
             fs.writeFile("./persona3.json", JSON.stringify(persona), function() {
                 fs.readFile("./persona3.json", function (err, dato) {
                    console.log (JSON.parse(dato)) 

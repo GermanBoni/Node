@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto</title>
+    <link rel="stylesheet" href="reto.css">
+    <script src="reto.js"></script>
+</head>
+<body>
+    <div class="contenedor_principal">
+        <form class="formulario">
+            <input class="input" type="text" id="name_user" placeholder="Name">
+            <input class="input" type="text" id="age_user" placeholder="Age">
+            <input class="input" type="text" id="nationality_user" placeholder="Nationality">
+            <input class="input" type="text" id="hairColor_user" placeholder="HairColor">
+        </form>
+        <div class="botones">
+            <button class="boton" onclick="post_user()">Crear</button>
+            <button class="boton" onclick="put_user()">Actualizar</button>
+            <button class="boton" onclick="delete_user()" >Eliminar</button>
+            <button class="boton" onclick="get_user()">Mostrar</button>       
+        </div>
+        <form class="formulario_res">
+            <input class="input" type="text" id="name_res" placeholder="Name">
+            <input class="input" type="text" id="age_res" placeholder="Age">
+            <input class="input" type="text" id="nationality_res" placeholder="Nationality">
+            <input class="input" type="text" id="hairColor_res" placeholder="HairColor">
+        </form>
+    </div>
+</body>
+</html>

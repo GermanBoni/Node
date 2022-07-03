@@ -1,0 +1,61 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedor_principal{
+    display: flex;
+    flex-direction: column;
+    width:100vw;
+    height: 1000px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 25%;
+    border: 2px red solid;
+    margin-top: 250px;
+    align-items: center;
+    gap: 5px;
+}
+/* tengo que poner altura al formulario??? es que quisiera que el
+contenedor se me ajustara a los inputs, sin que me sobrara espacio */
+/* gap puede estar en porcentaje?? porque me deja en horizontal pero
+no en vertical */
+.input{
+    height: 20%;
+    width: 15%;
+}
+
+.botones{
+    display: flex;
+    flex-direction: row;
+    /* border: 2px blue solid; */
+    margin-top: 80px;
+    width: 100%;
+    height: 5%;
+    justify-content: center;
+    gap: 2%;
+}
+
+.boton{
+    height: 80%;
+    width: 5%;
+    color: white;
+    background-color: blue;
+}
+
+.formulario_res{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 25%;
+    /* border: 2px red solid; */
+    margin-top: 50px;
+    align-items: center;
+    gap: 5px;
+}

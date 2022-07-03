@@ -3,9 +3,11 @@
 
 // Para importar la clase, esta tiene que estar en un archivo solo???
 
-const { request, response } = require("express")
+// const { request, response } = require("express")
 const express = require ("express")
 const app = express()
+let cors = require("cors")
+app.use(cors())
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
@@ -26,6 +28,7 @@ class Professional{
 }
 
 let professional1 = new Professional("antonio", 61, "española", "negro")
+// let professional1 = null
 
 // console.log(professional1);
 
@@ -36,16 +39,17 @@ app.get("/professional", (request, response) =>{
     let res
     let name= request.query.name
     // name lo creo para preguntar por un parametro concreto.
-    // Si fuera para preguntar por la existencia de la clase professional1, no haria falta crear ninguna variable "name"
+    // Si fuera para preguntar por la existencia de la clase professional1, no haria falta crear ninguna variable "name", 
+    // solo la variable res para obtener la respuesta
 
     if (professional1 !=null && name===professional1.name){
-        res = {error: false, message: "Actor encontrado coincide con busqueda", profesional: professional1}
+        res = {error: false, message: "Actor encontrado coincide con busqueda", professional: professional1}
     }
     else if (professional1 !=null){
-        res= {error: false, message: "El actor existe, pero no coincide", profesional: professional1}
+        res= {error: false, message: "El actor existe, pero no coincide", professional: professional1}
     }
     else{
-        res= {error: false, message: "El actor no existe", profesional: null}
+        res= {error: true, message: "El actor no existe", professional: null}
     }
 
     response.status(200).send(res)
@@ -54,10 +58,15 @@ app.get("/professional", (request, response) =>{
 
 // Metodo POST
 
-app.post("/profesional", (request, response) =>{
+app.post("/professional", (request, response) =>{
 
     let res
-    const{name, age, nationality, hairColor} = request.body
+    // const{name, age, nationality, hairColor} = request.body
+    
+    let name= request.body.name
+    let age= request.body.age
+    let nationality= request.body.nationality
+    let hairColor= request.body.hairColor
     // como funciona els constructor de arriba??? es const o constructor??
 
     if (professional1 === null){
@@ -66,7 +75,7 @@ app.post("/profesional", (request, response) =>{
         res = {error: false, message:"Actor creado", profressional:professional1}
     }
     else{
-        res= {error:false, message:"Actor existene", professional:professional1}
+        res= {error:true, message:"Actor existene", professional:professional1}
     }
 
     response.status(200).send(res)
@@ -79,7 +88,10 @@ app.post("/profesional", (request, response) =>{
 app.put("/professional", (request, response) =>{
 
     let res
-    const{name, age, nationality} = request.body
+    // const{name, age, nationality} = request.body
+    let name= request.body.name
+    let age= request.body.age
+    let nationality= request.body.nationality
 
     if (professional1 !=null && name ===professional1.name){
         professional1.age=age
@@ -97,7 +109,7 @@ app.put("/professional", (request, response) =>{
         res ={error:false, message: "Actor modificado 3", professional:professional1}
     }
     else{
-        res ={error:false, message: "Actor inexistente o sin ninguna coincidencia", professional:professional1}
+        res ={error:true, message: "Actor inexistente o sin ninguna coincidencia", professional:professional1}
     }
     response.status(200).send(res)
 })
@@ -108,7 +120,10 @@ app.put("/professional", (request, response) =>{
 app.delete("/professional", (request, response) =>{
 
     let res
-    const{name, age, nationality}= request.body
+    // const{name, age, nationality}= request.body
+    let name= request.body.name
+    let age= request.body.age
+    let nationality= request.body.nationality
 
     if (professional1 != null && professional1.name===name){
         professional1 =null
@@ -120,7 +135,7 @@ app.delete("/professional", (request, response) =>{
     }
     else{
         professional1=professional1
-        res ={error:false, message:"No eliminado", professional:professional1}
+        res ={error:true, message:"No eliminado", professional:professional1}
     }
     // este else de arriba haria falta ponerlo???
     response.status(200).send(res)
